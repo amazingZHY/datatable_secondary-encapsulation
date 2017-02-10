@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/amazingZHY/amazingZHY.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/amazingZHY/amazingZHY.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# Datatables 二次封装（自定义应用）
+##1.表格初始化
+   ①序列号
+   ②多选框（支持全选、全不选）
+   ③分页（假分页）
+   ④每页显示数据条数（开启分页后方生效）、页跳转导航
+   ⑤即时搜索
+   ⑥页脚信息是否显示
+   ⑦纵向滚动
+   ⑧子行
+   ⑨设置隐藏列、文本对齐方式、排序(可设置默认排序列及排序方式sss)
+   ⑩选择单行/多行效果、高亮显示交叉数据
+##2.获取行数据（实现单行）
+   getRowData()
+   ----$("#tableID").data('control').getRowData(data)
+   ------data:Dom of current tr
+##3.添加数据
+  ①添加一行数据
+   addNewRow()
+   -----$("#tableID").data('control').addNewRow(data)
+   ------data格式为：["dataA","dataB",“dataC”,...]
+   ②添加多行数据
+    addNewRows()
+    ------$("#tableID").data('control').addNewRows(data)
+    ------data格式为：[["dataA","dataB",“dataC”,...],["dataA","dataB",“dataC”,...],...]
+##4.删除数据
+   deleteRows()
+    -----$("#tableID").data('control').deleteRows(data)
+    ------data:Dom of current tr or trs you want to delete
+##5.重载table
+   reloadTable()
+   -----$("#tableID").data('control').reloadTable(dataUrl,callback)
+   -----dataUrl:数据源地址 callback：重载后回调函数
