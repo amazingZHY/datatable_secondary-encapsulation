@@ -1,0 +1,28 @@
+td.highlight {
+    background-color: whitesmoke !important;
+}
+td.details-control {
+    background: url('../images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('../images/details_close.png') no-repeat center center;
+}
+
+input.paginate_input{
+    width: 50px;
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+input.paginate_input:focus {
+    border: 1px solid #0088cc;
+    margin-right: 1px;
+}

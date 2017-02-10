@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Datatables封装</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--<link rel="stylesheet" href="css/jquery-ui.css">-->
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="css/select.dataTables.min.css">
+    <link rel="stylesheet" href="css/datatables.css">
+    <!--<link rel="stylesheet" href="css/editor.dataTables.min.css">-->
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--<script type="text/javascript" src="js/jquery-ui.js"></script>-->
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/colResizable-1.5.min.js"></script>
+    <script type="text/javascript" src="js/datatables.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
+    <!--<script type="text/javascript" src="js/dataTables.editor.min.js"></script>-->
+</head>
+<body style="padding: 15px;">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                Datatables封装Demo
+            </div>
+        </div>
+        <div class="panel-body" id="table_local"></div>
+    </div>
+
+    <script type="text/javascript">
+        /**
+         * 调用datatables插件
+         * @type {Table}
+         */
+        var myTable = new Table({
+            columns:[
+                {caption:"name",id:"name",align:"text-center",visible:true,orderable:true,width:"20%"},
+                {caption:"profession",id:"profession",align:"text-center",visible:true,orderable:true,width:"50px"},
+                {caption:"nationality",id:"nationality",align:"text-center",visible:true,orderable:false,width:"20%"},
+                {caption:"workNum",id:"workNum",align:"text-center",visible:true,orderable:true,width:"20%"},
+                {caption:"retireDate",id:"retireDate",align:"text-center",visible:false,orderable:true},
+                {caption:"pension",id:"pension",align:"text-center",visible:true,orderable:true}
+            ],
+            id:"table_local",
+            url:"data/projects.json",
+            //rowNumber: true, // 序列号
+            checkBox: true, // 多选框
+            lengthMenu: 5, // 每页显示数据条数
+            searching:false,// 搜索
+            info:false, // 页脚信息
+            paging: true,// 分页
+            //scrollY:true,
+            additionalInfo:true, // 子行
+            //singleSelect:true// 单选行
+            multipleSelect:true, // 多选行
+            paginateInput: true, // 页跳转导航
+            highlight:true
+        });
+        var rowData = myTable.getRowData();// 获取选定行数据
+        myTable.addNewRow([ // 添加一行数据
+            "Garrett Winters",
+            "Director",
+            "China",
+            "3245",
+            "2011/04/01",
+            "$3,876"
+        ]);
+        myTable.addNewRows([[ // 添加多行数据
+            "Tiger Nixon",
+            "System Architect",
+            "China",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],[
+            "Alex Timmy",
+            "Developer",
+            "China",
+            "3425",
+            "2009/11/25",
+            "$3,908"
+        ]]);
+        $('.table').colResizable(); // 拖动列宽
+    </script>
+</body>
+</html>
